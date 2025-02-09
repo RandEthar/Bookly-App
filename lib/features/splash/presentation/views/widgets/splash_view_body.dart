@@ -1,8 +1,14 @@
 import 'dart:ffi';
 
+import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/features/home/presentation/view/home_view.dart';
+import 'package:bookly_app/features/splash/presentation/views/widgets/scaling_logo.dart';
 import 'package:bookly_app/features/splash/presentation/views/widgets/sliding_text.dart';
+import 'package:bookly_app/main.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -16,21 +22,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
   late AnimationController animationController;
   late Animation<Offset> slidingAnimationText;
   late Animation<Offset> slidingAnimationLogo;
-    late Animation<double> scaleAnimation;
+  late Animation<double> scaleAnimation;
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 2000));
-    slidingAnimationText =
-        Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
-            .animate(CurvedAnimation(parent:animationController, curve: Curves.easeInOutBack));
-    slidingAnimationLogo = Tween<Offset>(begin: Offset(0, -2), end: Offset.zero)
-        .animate(CurvedAnimation(parent: animationController, curve: Curves.easeInOutBack));
-    animationController.forward();
-   scaleAnimation=Tween<double>(begin: 0.2, end: 1.0).animate(
-      CurvedAnimation(parent:animationController, curve: Curves.easeInOutBack)
-    );
+    initSlidingAnimation();
+    NavigateToHome();
     // slidingAnimation.addListener(() {
     //   setState(() {});
     // });
@@ -48,19 +45,37 @@ class _SplashViewBodyState extends State<SplashViewBody>
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        AnimatedBuilder(
-          animation: slidingAnimationLogo,
-          builder: (context, child) {
-            return ScaleTransition(
-               scale: scaleAnimation,
-                child: Image.asset(AssetsData.logo));
-          },
-        ),
+        ScalingLogo(scaleAnimation: scaleAnimation),
         const SizedBox(
           height: 4,
         ),
         SlidingText(slidingAnimation: slidingAnimationText)
       ],
     );
+  }
+
+  void initSlidingAnimation() {
+    animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 2000));
+    slidingAnimationText =
+        Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero).animate(
+            CurvedAnimation(
+                parent: animationController, curve: Curves.easeInOutBack));
+    slidingAnimationLogo = Tween<Offset>(begin: Offset(0, -2), end: Offset.zero)
+        .animate(CurvedAnimation(
+            parent: animationController, curve: Curves.easeInOutBack));
+
+    scaleAnimation = Tween<double>(begin: 0.2, end: 1.0).animate(
+        CurvedAnimation(
+            parent: animationController, curve: Curves.easeInOutBack));
+    animationController.forward();
+  }
+
+  void NavigateToHome() {
+    Future.delayed(const Duration(seconds: 5), () {
+      Get.to(() => const HomeView(),
+          transition: Transition.rightToLeftWithFade,
+          duration: kTranstionDuration);
+    });
   }
 }
