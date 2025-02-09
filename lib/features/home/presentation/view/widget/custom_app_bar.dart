@@ -16,11 +16,11 @@ class CustomAppBar extends StatelessWidget {
             AssetsData.logo,
             height: 18,
           ),
-          const Icon(
-            Iconsax.search_normal_1,
+          IconButton(onPressed: (){},
+           icon:const Icon( Iconsax.search_normal_1,
             size: 26,
             color: Colors.white,
-          ),
+          ),)
         ],
       ),
     );
