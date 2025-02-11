@@ -18,11 +18,16 @@ class CustomAppBar extends StatelessWidget {
             AssetsData.logo,
             height: 18,
           ),
-          IconButton(onPressed: (){  GoRouter.of(context).push(AppRouter.kSearchView);},
-           icon:const Icon( Iconsax.search_normal_1,
-            size: 26,
-            color: Colors.white,
-          ),)
+          IconButton(
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.kSearchView);
+            },
+            icon: const Icon(
+              Iconsax.search_normal_1,
+              size: 26,
+              color: Colors.white,
+            ),
+          )
         ],
       ),
     );

@@ -34,25 +34,14 @@ class HomeViewBody extends StatelessWidget {
               ],
             ),
           ),
-       
-                BestSellerListView(),
-         
+          BestSellerListView(),
         ],
       ),
     );
   }
 }
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    /*const SafeArea(
+/*const SafeArea(
       child: Column(children: [
         CustomAppBar(),
         FeaturedBooksListView(),
@@ -75,4 +64,3 @@ class HomeViewBody extends StatelessWidget {
         BestSellerListView()
       ]),
     );*/
-

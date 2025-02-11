@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -10,20 +7,18 @@ class CustomSearchTextFeild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-            cursorColor: Colors.white,
-            decoration: InputDecoration(
-                hintText: 'Search',
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Iconsax.search_normal_1),
-                ),
-                enabledBorder: buildOutlineInputBorder(),
-                focusedBorder: buildOutlineInputBorder()),
-          );
+      cursorColor: Colors.white,
+      decoration: InputDecoration(
+          hintText: 'Search',
+          suffixIcon: IconButton(
+            onPressed: () {},
+            icon: const Icon(Iconsax.search_normal_1),
+          ),
+          enabledBorder: buildOutlineInputBorder(),
+          focusedBorder: buildOutlineInputBorder()),
+    );
   }
 
-
-  
   OutlineInputBorder buildOutlineInputBorder() {
     return const OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(12)),

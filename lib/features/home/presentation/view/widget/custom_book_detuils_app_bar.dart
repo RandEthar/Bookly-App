@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-
 
 class CustomBookDetuilsAppBar extends StatelessWidget {
   const CustomBookDetuilsAppBar({super.key});
@@ -11,16 +9,15 @@ class CustomBookDetuilsAppBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Row(
         children: [
-          IconButton(icon: const Icon(Icons.close) 
-          ,onPressed:(){
-          
-
-          } ,),
+          IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () {},
+          ),
           const Spacer(),
-          IconButton(icon: const Icon(Icons.shopping_cart_outlined) 
-          ,onPressed:(){
-
-          } ,),
+          IconButton(
+            icon: const Icon(Icons.shopping_cart_outlined),
+            onPressed: () {},
+          ),
         ],
       ),
     );
