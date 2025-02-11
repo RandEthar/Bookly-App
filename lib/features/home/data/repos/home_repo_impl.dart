@@ -5,6 +5,7 @@ import 'package:bookly_app/features/home/data/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
+
 class HomeRepoImpl implements HomeRepo{
    final ApiServises apiServises;
 
@@ -12,7 +13,7 @@ class HomeRepoImpl implements HomeRepo{
 
 
   @override
-  Future<Either<Failuers, List<BookModel>>> fetchNewsetBooks() async{
+  Future<Either<Failures, List<BookModel>>> fetchNewsetBooks() async{
    try {
   var data =await apiServises.get(endPoint:"volumes?q=subject:Programming&filtering=free-ebooxs&sort=newest");
 
@@ -22,13 +23,18 @@ class HomeRepoImpl implements HomeRepo{
 
   }
 return right(books);
-} on Exception catch (e) {
- return left(ServerFailuers());
+} catch (e) {
+ if(e is DioException){
+   return left(ServerFailures.fromDioError(e));
+
+
+ }
+ return left(ServerFailures(e.toString()));
 }
   }
 
   @override
-  Future<Either<Failuers, List<BookModel>>> fetchFeaturedBooks() {
+  Future<Either<Failures, List<BookModel>>> fetchFeaturedBooks() {
      throw Exception();
   }
 }
