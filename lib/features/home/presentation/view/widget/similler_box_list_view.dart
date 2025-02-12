@@ -15,7 +15,7 @@ class SimillerBoxListView extends StatelessWidget {
             itemBuilder: (context, index) {
               return const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 6),
-                child: CustomListViewItem(),
+                child: CustomListViewItem(imageUrl: 'http://books.google.com/books/content?id=6BaJDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',),
               );
             }),
       ),

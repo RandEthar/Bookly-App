@@ -2,13 +2,14 @@ import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
 import 'package:bookly_app/features/home/presentation/view/widget/book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
+  const BestSellerListViewItem({super.key, this.bookModel});
+   final BookModel ?bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -61,7 +62,7 @@ class BestSellerListViewItem extends StatelessWidget {
                         Text('19.99 €',
                             style: Styles.textStyle20
                                 .copyWith(fontWeight: FontWeight.bold)),
-                        Spacer(),
+                     const   Spacer(),
                         const BookRating()
                       ],
                     ),

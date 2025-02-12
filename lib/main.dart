@@ -26,10 +26,10 @@ class BooklyApp extends StatelessWidget {
       providers: [
         BlocProvider(
             create: (constext) => FeaturedBooksCubit(
-              getIt.get<HomeRepoImpl>())),
+              getIt.get<HomeRepoImpl>())..featchFeaturedBooks()),
         BlocProvider(
             create: (constext) => NewestBooksCubit(
-              getIt.get<HomeRepoImpl>())),
+              getIt.get<HomeRepoImpl>())..featchNewestedBooks()),
       ],
       child: MaterialApp.router(
           routerConfig: AppRouter.router,

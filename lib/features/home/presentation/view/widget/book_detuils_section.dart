@@ -14,7 +14,7 @@ class BookDetuilsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .29),
-          child: const CustomListViewItem(),
+          child: const CustomListViewItem(imageUrl: 'http://books.google.com/books/content?id=6BaJDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',),
         ),
         const SizedBox(
           height: 43,
