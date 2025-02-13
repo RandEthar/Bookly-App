@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 class CustomSearchTextFeild extends StatelessWidget {
-  const CustomSearchTextFeild({super.key});
-
+  const CustomSearchTextFeild({super.key, this.onChanged});
+   final  void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: onChanged,
       cursorColor: Colors.white,
       decoration: InputDecoration(
           hintText: 'Search',
