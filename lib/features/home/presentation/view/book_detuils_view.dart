@@ -15,15 +15,21 @@ class BookDetuilsView extends StatefulWidget {
 
 class _BookDetuilsViewState extends State<BookDetuilsView> {
 @override
-  void initState() {
+
+void initState() {
+  super.initState();
   
-    super.initState();
-    context.read<SimilarBooksCubit>().featchSimilarBooks(categories:widget.bookModel.volumeInfo.categories![0]);
-  }
+  final category = widget.bookModel.volumeInfo.categories?.isNotEmpty == true 
+      ? widget.bookModel.volumeInfo.categories![0] 
+      : "Unknown"; // قيمة افتراضية
+
+  context.read<SimilarBooksCubit>().featchSimilarBooks(categories: category);
+}
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: BookDetuilsViewBody(),
+    return  Scaffold(
+      body: BookDetuilsViewBody(bookModel: widget.bookModel,),
     );
   }
 }

@@ -11,7 +11,9 @@ class CustomBookDetuilsAppBar extends StatelessWidget {
         children: [
           IconButton(
             icon: const Icon(Icons.close),
-            onPressed: () {},
+            onPressed: () {
+            Navigator.pop(context);
+            },
           ),
           const Spacer(),
           IconButton(
