@@ -29,7 +29,7 @@ class BestSellerListView extends StatelessWidget {
 
           return SliverToBoxAdapter(child: CustomErrorWidget(text: state.errorMassage,));
         }else{
-         return     const  SliverToBoxAdapter(child:CustomLoadingIndecator());
+         return const SliverToBoxAdapter(child:CustomLoadingIndecator());
 
         }
       },

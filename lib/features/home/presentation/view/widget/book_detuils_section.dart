@@ -14,7 +14,7 @@ class BookDetuilsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .29),
-          child: const CustomListViewItem(imageUrl: 'http://books.google.com/books/content?id=6BaJDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',),
+          child: const CustomBookImage(imageUrl: 'http://books.google.com/books/content?id=6BaJDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',),
         ),
         const SizedBox(
           height: 43,
@@ -36,9 +36,9 @@ class BookDetuilsSection extends StatelessWidget {
         const SizedBox(
           height: 18,
         ),
-        const BookRating(
+      /*  const BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
-        ),
+        ),*/
         const SizedBox(
           height: 37,
         ),
