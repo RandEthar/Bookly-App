@@ -1,16 +1,18 @@
-
 import 'package:bookly_app/core/errors/failuers.dart';
+import 'package:bookly_app/core/use_cases/use_cases.dart';
+
 import 'package:bookly_app/features/home/domain/entites/book_entity.dart';
 import 'package:bookly_app/features/home/domain/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 
-class FeatchFeaturedBooksUseCase {
+class FeatchFeaturedBooksUseCase implements UseCase<List<BookEntity>, NoParam> {
   final HomeRepos homeRepo;
 
-  FeatchFeaturedBooksUseCase({required this.homeRepo});
+  FeatchFeaturedBooksUseCase(this.homeRepo);
 
-    Future<Either<Failures,List<BookEntity>>> featchFeaturedBooks(){
-      //!check premssion الصلاحيات
-      return homeRepo.featchFeaturedBooks();
-    }
+  @override
+  Future<Either<Failures, List<BookEntity>>> call([NoParam? param]) {
+    // TODO: implement call
+    throw UnimplementedError();
+  }
 }
