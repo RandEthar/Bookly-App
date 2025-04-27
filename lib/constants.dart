@@ -5,3 +5,4 @@ const String kGTSectraFine = 'GT Sectra Fine';
 
 const Duration kTranstionDuration = Duration(milliseconds: 300);
 const String kFeaturedBook="FeaturedBook";
+const String kNewestBook="newest_box";

@@ -12,24 +12,21 @@ abstract class HomeRemoteDataSource {
 
 class HomeRemoteDataSourceImple extends HomeRemoteDataSource {
   final ApiServises apiServises;
-
   HomeRemoteDataSourceImple({required this.apiServises});
   @override
   Future<List<BookEntity>> featchFeaturedBooks() async {
     var data = await apiServises.get(
         endPoint: "volumes?Filtering=free-ebooxs&q=Programming");
- List<BookEntity> books =getBooksList(data);
- 
- saveBoxData(books,kFeaturedBook);
+    List<BookEntity> books = getBooksList(data);
+    saveBoxData(books, kFeaturedBook);
     return books;
   }
-
-
   @override
   Future<List<BookEntity>> featchNewestBooks() async {
     var data = await apiServises.get(
         endPoint: "volumes?Filtering=free-ebooxs&q=Programming&Sorting=newest");
-
+    List<BookEntity> books = getBooksList(data);
+    saveBoxData(books, kNewestBook);
     return getBooksList(data);
   }
 
