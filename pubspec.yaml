@@ -43,6 +43,8 @@ dependencies:
   iconsax: ^0.0.8
   redacted: ^1.0.13
   url_launcher: ^6.3.1
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
   
 
 dev_dependencies:
@@ -55,6 +57,8 @@ dev_dependencies:
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
+  hive_generator: ^2.0.1
+  build_runner: 2.4.13   
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
