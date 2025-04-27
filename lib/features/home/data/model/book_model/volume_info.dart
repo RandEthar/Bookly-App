@@ -14,7 +14,7 @@ class VolumeInfo extends Equatable {
   final String? description;
   final List<IndustryIdentifier>? industryIdentifiers;
   final ReadingModes? readingModes;
-  final int? pageCount;
+  final num? pageCount;
   final String? printType;
   final List<String>? categories;
   final String? maturityRating;
@@ -42,7 +42,7 @@ class VolumeInfo extends Equatable {
     this.allowAnonLogging,
     this.contentVersion,
     this.panelizationSummary,
-    required this.imageLinks,
+  required this.imageLinks,
     this.language,
     this.previewLink,
     this.infoLink,
@@ -51,7 +51,7 @@ class VolumeInfo extends Equatable {
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
         title: json['title'] as String?,
-        authors: (json['authors'] as List<dynamic>?)?.cast<String>(),
+        authors:(json['authors'] as List<dynamic>?)?.cast<String>(),
         publisher: json['publisher'] as String?,
         publishedDate: json['publishedDate'] as String?,
         description: json['description'] as String?,
@@ -62,9 +62,9 @@ class VolumeInfo extends Equatable {
             ? null
             : ReadingModes.fromJson(
                 json['readingModes'] as Map<String, dynamic>),
-        pageCount: json['pageCount'] as int?,
+        pageCount: json['pageCount'] as num?,
         printType: json['printType'] as String?,
-        categories: (json['categories'] as List<dynamic>?)?.cast<String>(),
+        categories:(json['categories'] as List<dynamic>?)?.cast<String>(),
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,
         contentVersion: json['contentVersion'] as String?,
@@ -72,8 +72,7 @@ class VolumeInfo extends Equatable {
             ? null
             : PanelizationSummary.fromJson(
                 json['panelizationSummary'] as Map<String, dynamic>),
-        imageLinks:
-            ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
+        imageLinks: ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
         language: json['language'] as String?,
         previewLink: json['previewLink'] as String?,
         infoLink: json['infoLink'] as String?,
