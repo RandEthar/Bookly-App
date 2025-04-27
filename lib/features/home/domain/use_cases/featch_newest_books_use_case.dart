@@ -5,7 +5,7 @@ import 'package:bookly_app/features/home/domain/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 
 class FeatchNewestBooksUseCase implements UseCase<List<BookEntity>, NoParam> {
-  final HomeRepos homeRepo;
+  final HomeRepo homeRepo;
 
   FeatchNewestBooksUseCase(this.homeRepo);
 

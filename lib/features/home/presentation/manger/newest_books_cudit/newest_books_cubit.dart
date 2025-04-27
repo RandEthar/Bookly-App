@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
-import 'package:bookly_app/features/home/data/repos/home_repo.dart';
+
+import 'package:bookly_app/features/home/domain/repos/home_repo.dart';
 
 import 'package:equatable/equatable.dart';
 
@@ -13,10 +14,10 @@ class NewestBooksCubit extends Cubit<NewestBooksState> {
   Future<void> featchNewestedBooks() async {
     emit(NewestBooksLoading());
 
-    var result = await homeRepo.fetchNewsetBooks();
-    result.fold(
-        (failuer) =>
-            emit(NewestBooksFailuer(errorMassage: failuer.errorMessage)),
-        (books) => emit(NewestBooksSuccess(books: books)));
+    // var result = await homeRepo.fetchNewsetBooks();
+    // result.fold(
+    //     (failuer) =>
+    //         emit(NewestBooksFailuer(errorMassage: failuer.errorMessage)),
+    //     (books) => emit(NewestBooksSuccess(books: books)));
   }
 }
