@@ -3,7 +3,7 @@ import 'package:iconsax/iconsax.dart';
 
 class CustomSearchTextFeild extends StatelessWidget {
   const CustomSearchTextFeild({super.key, this.onChanged});
-   final  void Function(String)? onChanged;
+  final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextField(

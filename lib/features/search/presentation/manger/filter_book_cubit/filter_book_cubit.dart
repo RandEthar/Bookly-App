@@ -18,8 +18,8 @@ class FilterBookCubit extends Cubit<FilterBookState> {
               .toLowerCase()
               .contains(nameBook.toLowerCase()))
           .toList();
-            log(nameBook);
-          
+      log(nameBook);
+
       emit(FilterBookSuccess(filterBooks: filterlist));
     }
   }

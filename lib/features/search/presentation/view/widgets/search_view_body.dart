@@ -15,12 +15,11 @@ class SearchViewBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         Padding(
-            padding:const  EdgeInsets.symmetric(horizontal: 20),
+        Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: CustomSearchTextFeild(
-
               onChanged: (value) {
-                 context.read<FilterBookCubit>().filterBook(listBook, value);
+                context.read<FilterBookCubit>().filterBook(listBook, value);
               },
             )),
         const SizedBox(
@@ -33,19 +32,19 @@ class SearchViewBody extends StatelessWidget {
             style: Styles.textStyle18.copyWith(fontWeight: FontWeight.w900),
           ),
         ),
-        Expanded(child: BlocBuilder<FilterBookCubit , FilterBookState >(
+        Expanded(child: BlocBuilder<FilterBookCubit, FilterBookState>(
           builder: (context, state) {
             if (state is FilterBookSuccess) {
-  return SearchResultListView(
-    listBook: state.filterBooks,
-  );
-}else if(state is FilterBookInitial){
- return SearchResultListView(
-    listBook: listBook,
-  );
-}else {
-          return const CustomLoadingIndecator();
-        }
+              return SearchResultListView(
+                listBook: state.filterBooks,
+              );
+            } else if (state is FilterBookInitial) {
+              return SearchResultListView(
+                listBook: listBook,
+              );
+            } else {
+              return const CustomLoadingIndecator();
+            }
           },
         ))
       ],

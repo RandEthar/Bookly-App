@@ -15,22 +15,24 @@ class BestSellerListView extends StatelessWidget {
         if (state is NewestBooksSuccess) {
           return SliverList(
             delegate: SliverChildBuilderDelegate(
-                    childCount: state.books.length,
+              childCount: state.books.length,
               (context, index) {
-                return  Padding(
-                  padding:const  EdgeInsets.only(bottom: 20),
-                  child: BestSellerListViewItem(bookModel: state.books[index] ,),
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: BestSellerListViewItem(
+                    bookModel: state.books[index],
+                  ),
                 );
               },
-           
             ),
           );
-        }else if(state is NewestBooksFailuer){
-
-          return SliverToBoxAdapter(child: CustomErrorWidget(text: state.errorMassage,));
-        }else{
-         return const SliverToBoxAdapter(child:CustomLoadingIndecator());
-
+        } else if (state is NewestBooksFailuer) {
+          return SliverToBoxAdapter(
+              child: CustomErrorWidget(
+            text: state.errorMassage,
+          ));
+        } else {
+          return const SliverToBoxAdapter(child: CustomLoadingIndecator());
         }
       },
     );

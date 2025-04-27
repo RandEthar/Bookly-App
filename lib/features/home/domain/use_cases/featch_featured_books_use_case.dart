@@ -12,6 +12,6 @@ class FeatchFeaturedBooksUseCase implements UseCase<List<BookEntity>, NoParam> {
 
   @override
   Future<Either<Failures, List<BookEntity>>> call([NoParam? param]) {
-   return homeRepo.featchFeaturedBooks();
+    return homeRepo.featchFeaturedBooks();
   }
 }

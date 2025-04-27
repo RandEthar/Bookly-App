@@ -4,9 +4,12 @@ import 'package:iconsax/iconsax.dart';
 
 class BookRating extends StatelessWidget {
   const BookRating(
-      {super.key, this.mainAxisAlignment = MainAxisAlignment.start, required this.rating, required this.count});
-      final String  rating;
-       final int count;
+      {super.key,
+      this.mainAxisAlignment = MainAxisAlignment.start,
+      required this.rating,
+      required this.count});
+  final String rating;
+  final int count;
   final MainAxisAlignment mainAxisAlignment;
   @override
   Widget build(BuildContext context) {

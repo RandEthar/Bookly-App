@@ -29,7 +29,9 @@ class FeaturedBooksListView extends StatelessWidget {
 
 class BookListView extends StatelessWidget {
   const BookListView({
-    super.key, required this.books, required this.isLoading,
+    super.key,
+    required this.books,
+    required this.isLoading,
   });
 
   final List<BookModel> books;
@@ -59,18 +61,19 @@ class BookListView extends StatelessWidget {
                     ).redacted(
                       context: context,
                       redact: true,
-                      configuration:  RedactedConfiguration(
+                      configuration: RedactedConfiguration(
                         animationDuration: Duration(milliseconds: 800),
                       ),
                     )
                   : InkWell(
-                     onTap: () {
-                      GoRouter.of(context).push(extra:books[index], AppRouter.kBookDetuilsView);
-                    },
-                    child: CustomBookImage(
+                      onTap: () {
+                        GoRouter.of(context).push(
+                            extra: books[index], AppRouter.kBookDetuilsView);
+                      },
+                      child: CustomBookImage(
                         imageUrl: books[index].volumeInfo.imageLinks.thumbnail,
                       ),
-                  ),
+                    ),
             );
           },
         ),
@@ -78,4 +81,3 @@ class BookListView extends StatelessWidget {
     );
   }
 }
-

@@ -5,7 +5,6 @@ import 'package:bookly_app/features/home/presentation/view/widget/book_detuils_v
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class BookDetuilsView extends StatefulWidget {
   const BookDetuilsView({super.key, required this.bookModel});
   final BookModel bookModel;
@@ -14,22 +13,23 @@ class BookDetuilsView extends StatefulWidget {
 }
 
 class _BookDetuilsViewState extends State<BookDetuilsView> {
-@override
+  @override
+  void initState() {
+    super.initState();
 
-void initState() {
-  super.initState();
-  
-  final category = widget.bookModel.volumeInfo.categories?.isNotEmpty == true 
-      ? widget.bookModel.volumeInfo.categories![0] 
-      : "Unknown"; // قيمة افتراضية
+    final category = widget.bookModel.volumeInfo.categories?.isNotEmpty == true
+        ? widget.bookModel.volumeInfo.categories![0]
+        : "Unknown"; // قيمة افتراضية
 
-  context.read<SimilarBooksCubit>().featchSimilarBooks(categories: category);
-}
+    context.read<SimilarBooksCubit>().featchSimilarBooks(categories: category);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: BookDetuilsViewBody(bookModel: widget.bookModel,),
+    return Scaffold(
+      body: BookDetuilsViewBody(
+        bookModel: widget.bookModel,
+      ),
     );
   }
 }

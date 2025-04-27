@@ -3,7 +3,6 @@ import 'package:bookly_app/features/home/presentation/view/widget/best_seller_li
 
 import 'package:flutter/material.dart';
 
-
 class SearchResultListView extends StatelessWidget {
   const SearchResultListView({super.key, required this.listBook});
   final List<BookModel> listBook;

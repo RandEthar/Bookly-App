@@ -31,11 +31,10 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failures, List<BookModel>>> fetchFeaturedBooks() async{
-   try {
+  Future<Either<Failures, List<BookModel>>> fetchFeaturedBooks() async {
+    try {
       var data = await apiServises.get(
-          endPoint:
-              "volumes?q=subject:flutter&filtering=free-ebooxs");
+          endPoint: "volumes?q=subject:flutter&filtering=free-ebooxs");
 
       List<BookModel> books = [];
       for (var item in data['items']) {
@@ -49,9 +48,10 @@ class HomeRepoImpl implements HomeRepo {
       return left(ServerFailures(e.toString()));
     }
   }
-  
+
   @override
-  Future<Either<Failures, List<BookModel>>> fetchSimilarBooks({required String categories}) async{
+  Future<Either<Failures, List<BookModel>>> fetchSimilarBooks(
+      {required String categories}) async {
     try {
       var data = await apiServises.get(
           endPoint:

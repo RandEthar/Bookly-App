@@ -8,22 +8,24 @@ import 'package:flutter/material.dart';
 
 class BookDetuilsSection extends StatelessWidget {
   const BookDetuilsSection({super.key, required this.bookModel});
- final BookModel bookModel;
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-   
+
     return Column(
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .29),
-          child: CustomBookImage(imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail??" ",),
+          child: CustomBookImage(
+            imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? " ",
+          ),
         ),
         const SizedBox(
           height: 43,
         ),
-         Text(
-        textAlign:TextAlign.center,
+        Text(
+          textAlign: TextAlign.center,
           bookModel.volumeInfo.title!,
           style: Styles.textStyle30,
         ),
@@ -40,17 +42,19 @@ class BookDetuilsSection extends StatelessWidget {
         const SizedBox(
           height: 18,
         ),
-      const   BookRating(
-              count: 3950 ,
-          rating:"4.8" ,
+        const BookRating(
+          count: 3950,
+          rating: "4.8",
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         const SizedBox(
           height: 37,
         ),
         Padding(
-          padding:const  EdgeInsets.symmetric(horizontal: 38),
-          child: BooksAction(bookModel: bookModel,),
+          padding: const EdgeInsets.symmetric(horizontal: 38),
+          child: BooksAction(
+            bookModel: bookModel,
+          ),
         ),
       ],
     );

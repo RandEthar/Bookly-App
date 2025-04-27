@@ -13,6 +13,4 @@ final class FilterBookSuccess extends FilterBookState {
   final List<BookModel> filterBooks;
 
   const FilterBookSuccess({required this.filterBooks});
-
- 
 }

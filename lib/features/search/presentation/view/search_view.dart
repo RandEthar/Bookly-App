@@ -29,14 +29,14 @@ class _SearchViewState extends State<SearchView> {
             return SearchViewBody(
               listBook: state.books,
             );
-          }else if (state is NewestBooksFailuer) {
-          return CustomErrorWidget(
-            text: state.errorMassage,
-          );
-        } else {
-          return const CustomLoadingIndecator();
-        }
-      },
+          } else if (state is NewestBooksFailuer) {
+            return CustomErrorWidget(
+              text: state.errorMassage,
+            );
+          } else {
+            return const CustomLoadingIndecator();
+          }
+        },
       )),
     );
   }

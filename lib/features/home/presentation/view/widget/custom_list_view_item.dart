@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -12,19 +11,20 @@ class CustomBookImage extends StatelessWidget {
       child: AspectRatio(
         aspectRatio: 2.6 / 4,
         child: CachedNetworkImage(
-             placeholder: (context, url) => const Center(child: SizedBox(
-              height: 30,width: 30,
-              child: CircularProgressIndicator())),
-          imageUrl:imageUrl, fit: BoxFit.fill
-         , errorWidget: (context, url, error) => const Icon(Icons.error,color: Colors.red,),
-          
-       ),
+          placeholder: (context, url) => const Center(
+              child: SizedBox(
+                  height: 30, width: 30, child: CircularProgressIndicator())),
+          imageUrl: imageUrl,
+          fit: BoxFit.fill,
+          errorWidget: (context, url, error) => const Icon(
+            Icons.error,
+            color: Colors.red,
+          ),
+        ),
       ),
     );
   }
 }
-
-
 
 /*AspectRatio(
       aspectRatio: 2.6 / 4,
@@ -36,4 +36,3 @@ class CustomBookImage extends StatelessWidget {
                 image: NetworkImage(imageUrl), fit: BoxFit.fill)),
       ),
     );*/
-

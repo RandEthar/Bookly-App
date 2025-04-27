@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class BookDetuilsViewBody extends StatelessWidget {
   const BookDetuilsViewBody({super.key, required this.bookModel});
-   final BookModel bookModel;
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -17,18 +17,20 @@ class BookDetuilsViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-             const   CustomBookDetuilsAppBar(),
-               const  SizedBox(
+                const CustomBookDetuilsAppBar(),
+                const SizedBox(
                   height: 10,
                 ),
-                BookDetuilsSection(bookModel: bookModel,),
-               const  Expanded(
+                BookDetuilsSection(
+                  bookModel: bookModel,
+                ),
+                const Expanded(
                   child: SizedBox(
                     height: 50,
                   ),
                 ),
-               const  SimillerBoxSections(),
-               const  SizedBox(
+                const SimillerBoxSections(),
+                const SizedBox(
                   height: 40,
                 )
               ],

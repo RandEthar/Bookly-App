@@ -14,7 +14,8 @@ class BestSellerListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (bookModel == null || bookModel!.volumeInfo.imageLinks?.thumbnail == null) {
+    if (bookModel == null ||
+        bookModel!.volumeInfo.imageLinks?.thumbnail == null) {
       return const Center(child: Text("بيانات الكتاب غير متوفرة"));
     }
 
@@ -45,22 +46,26 @@ class BestSellerListViewItem extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       bookModel!.volumeInfo.title ?? "عنوان غير متوفر",
-                      style: Styles.textStyle20.copyWith(fontFamily: kGTSectraFine),
+                      style: Styles.textStyle20
+                          .copyWith(fontFamily: kGTSectraFine),
                     ),
                   ),
                   const SizedBox(height: 3),
                   Text(
-                    bookModel!.volumeInfo.authors != null && bookModel!.volumeInfo.authors!.isNotEmpty
+                    bookModel!.volumeInfo.authors != null &&
+                            bookModel!.volumeInfo.authors!.isNotEmpty
                         ? bookModel!.volumeInfo.authors![0]
                         : "مؤلف غير معروف",
-                    style: Styles.textStyle14.copyWith(color: Colors.white.withOpacity(0.7)),
+                    style: Styles.textStyle14
+                        .copyWith(color: Colors.white.withOpacity(0.7)),
                   ),
                   const SizedBox(height: 3),
                   Row(
                     children: [
                       Text(
                         'Free',
-                        style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),
+                        style: Styles.textStyle20
+                            .copyWith(fontWeight: FontWeight.bold),
                       ),
                       const Spacer(),
                       BookRating(
