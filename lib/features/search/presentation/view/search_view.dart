@@ -27,7 +27,7 @@ class _SearchViewState extends State<SearchView> {
         builder: (context, state) {
           if (state is NewestBooksSuccess) {
             return SearchViewBody(
-              listBook: state.books,
+              listBook: [],
             );
           } else if (state is NewestBooksFailuer) {
             return CustomErrorWidget(

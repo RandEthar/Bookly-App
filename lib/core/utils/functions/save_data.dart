@@ -3,6 +3,6 @@
 import 'package:hive/hive.dart';
 //! جبت البوكس يلي فتحته بالمين وخنت فيه كل البيانات
 void saveBoxData(List<BookEntity> books,String boxName) {
-    var box=Hive.box(boxName);
+    var box=Hive.box<BookEntity>(boxName);
     box.addAll(books);
   }
