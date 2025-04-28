@@ -1,23 +1,25 @@
 import 'package:bloc/bloc.dart';
 import 'package:bookly_app/features/home/data/model/book_model/book_model.dart';
+import 'package:bookly_app/features/home/domain/entites/book_entity.dart';
 
-import 'package:bookly_app/features/home/domain/repos/home_repo.dart';
+import 'package:bookly_app/features/home/domain/use_cases/featch_newest_books_use_case.dart';
 
 import 'package:equatable/equatable.dart';
 
 part 'newest_books_state.dart';
 
 class NewestBooksCubit extends Cubit<NewestBooksState> {
-  NewestBooksCubit(this.homeRepo) : super(NewestBooksInitial());
+  NewestBooksCubit(this.featchNewestBooksUseCase) : super(NewestBooksInitial());
 
-  final HomeRepo homeRepo;
-  Future<void> featchNewestedBooks() async {
+  final FeatchNewestBooksUseCase featchNewestBooksUseCase;
+
+  Future<void> featchNewestBooks() async {
     emit(NewestBooksLoading());
-
-    // var result = await homeRepo.fetchNewsetBooks();
-    // result.fold(
-    //     (failuer) =>
-    //         emit(NewestBooksFailuer(errorMassage: failuer.errorMessage)),
-    //     (books) => emit(NewestBooksSuccess(books: books)));
+    var result = await featchNewestBooksUseCase.call();
+    result.fold((l) {
+      emit(NewestBooksFailuer(errorMassage: l.toString()));
+    }, (r) {
+      emit( NewestBooksSuccess(books: r));
+    });
   }
 }

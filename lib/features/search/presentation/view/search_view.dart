@@ -17,7 +17,7 @@ class _SearchViewState extends State<SearchView> {
   void initState() {
     super.initState();
 
-    context.read<NewestBooksCubit>().featchNewestedBooks();
+    // context.read<NewestBooksCubit>().featchNewestedBooks();
   }
 
   @override
